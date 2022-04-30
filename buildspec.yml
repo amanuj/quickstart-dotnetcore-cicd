@@ -8,7 +8,14 @@ phases:
     commands:
       - echo Build started on `date`
       - dotnet publish -c release -o ./build_output WebApplicationSample/WebApplicationSample.csproj
+      - dotnet test -c Release --logger trx --results-directory results
+      - cp Procfile ./build_output
 artifacts:
   files:
     - ./**/*
   base-directory: './build_output'
+reports:
+  $(PROJECT):
+    file-format: VisualStudioTrx
+    base-directory: 'results'
+    files: '**/*'
