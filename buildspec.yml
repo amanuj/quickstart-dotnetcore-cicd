@@ -15,7 +15,7 @@ artifacts:
     - ./**/*
   base-directory: './build_output'
 reports:
-  $(PROJECT):
+  WebApplicationSample:
     file-format: VisualStudioTrx
     base-directory: 'results'
     files: '**/*'
